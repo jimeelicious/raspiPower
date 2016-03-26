@@ -37,9 +37,7 @@ activating a timer that will shutdown the device according to the user settings.
 # TROUBLESHOOTING
  Exit codes
 		1   - Could not successfuly ping.
-
 		100 - Power restored.
-
 		105 - Lock file exists, script terminated.
 
 
