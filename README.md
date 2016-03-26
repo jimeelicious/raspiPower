@@ -21,7 +21,7 @@ activating a timer that will shutdown the device according to the user settings.
  power loss detection.
 
 	For example if:		$interval=5
-					$ping_x=4
+						$ping_x=4
 
 	Then the script will shut down the system 20 seconds (5*4)
 	after it detects power loss.
@@ -37,7 +37,9 @@ activating a timer that will shutdown the device according to the user settings.
 # TROUBLESHOOTING
  Exit codes
 		1   - Could not successfuly ping.
+
 		100 - Power restored.
+
 		105 - Lock file exists, script terminated.
 
 
