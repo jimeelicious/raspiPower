@@ -26,8 +26,8 @@ activating a timer that will shutdown the device according to the user settings.
 	Then the script will shut down the system 20 seconds (5*4)
 	after it detects power loss.
 
-	It is recommended that you keep ping intervals ($interval) low
-	for higher accuracy.
+It is recommended that you keep ping intervals ($interval) low
+for higher accuracy.
 
 	By default, the script timer is 1 hour after the first detection
 	of ping failure. (e.g. Ping every 10 mins=600s for 6 times
@@ -35,7 +35,8 @@ activating a timer that will shutdown the device according to the user settings.
 
 
 # TROUBLESHOOTING
- Exit codes
+Exit codes
+
 		1   - Could not successfuly ping.
 		100 - Power restored.
 		105 - Lock file exists, script terminated.
