@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Outage autoshutdown script
-# v 0.5 - Jimmy Ly
+# v 0.5.1 - Jimmy Ly
 
 ### Configuration Settings ###
 subnet=192.168.0		# set network IP portion (no trailing dot, e.g. ___.___.___.---)
