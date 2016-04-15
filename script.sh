@@ -13,7 +13,6 @@ runcmd=yes			# If ping fails, run command the command below? yes/no
 # example: cmd="echo \-\e \"Ping successful!\nSuccess time at `date +%R\ %Z`\""
 cmd="shutdown -h now"
 
-tmp=.email.lockping		# name of tmp lock file, also used to create email body
 interval=600			# interval between pings in seconds
 ping_x=6			# Ping a total of __ times
 email=				# sends alert to this email (for more than 1 email: comma-separate, no spaces)
@@ -36,6 +35,7 @@ else
  echo ...Pinging $subnet.$IP.
  if ! ping -W2 -c1 $subnet.$IP &>/dev/null
  then
+	tmp=.email.lockping		# name of tmp lock file, also used to create email body
 	count=1
 	echo \-\e "Power loss detected at `date +%R\ %Z`." > $tmp
 	while [ $count -le $(( $ping_x )) ]
@@ -54,7 +54,9 @@ else
 			cat ./"$tmp" > ~/alert.ping
 			cat ./$tmp | mail -s "[Power] Outage restored" $email
 			fi
+		  if [ -f "./.email.lockping" ]; then
 		  rm -f ./$tmp
+		  fi
 		  exit 100
 		fi
 
@@ -75,7 +77,9 @@ else
 	eval $cmd
 	fi
 
+	if [ -f "./.email.lockping" ]; then
 	rm -f ./$tmp
+	fi
 	exit 1
 
 # If primary ping succeeds
